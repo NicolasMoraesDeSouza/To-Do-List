@@ -14,6 +14,8 @@ export class AppComponent {
     this.todos.push('passear com cachorro');
     this.todos.push('ir ao super mercado');
     this.todos.push('cortar o cabelo');
+    this.todos.push("aprenda a pegar onibus no terminal")
+    this.todos.push("tentar usar um celular que nao seja apple")
 
   }
   alterarTexto() {
