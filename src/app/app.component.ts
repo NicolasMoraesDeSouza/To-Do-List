@@ -13,8 +13,10 @@ export class AppComponent {
   constructor() {
     
     
-    this.todos.push()
-    this.todos.push()
+    this.todos.push(new Todo(1, 'Passear com o cachorro', false));
+    this.todos.push(new Todo(2, 'Ir para o supermercado', true));
+    this.todos.push(new Todo(3, 'Cortar o cabelo', false));
+    
 
   }
   alterarTexto() {
