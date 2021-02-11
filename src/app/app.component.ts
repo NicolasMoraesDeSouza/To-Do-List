@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Todo } from './models/todo.model';
 
 @Component({
   selector: 'app-root',
@@ -6,16 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public todos: any[] = [];
+  public todos: Todo[] = [];
   public title: String = 'Minhas tarefas';
 
   constructor() {
     
-    this.todos.push('passear com cachorro');
-    this.todos.push('ir ao super mercado');
-    this.todos.push('cortar o cabelo');
-    this.todos.push("aprenda a pegar onibus no terminal")
-    this.todos.push("tentar usar um celular que nao seja apple")
+    
+    this.todos.push()
+    this.todos.push()
 
   }
   alterarTexto() {
