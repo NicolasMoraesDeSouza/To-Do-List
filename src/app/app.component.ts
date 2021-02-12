@@ -23,14 +23,6 @@ export class AppComponent {
         ])]
       });
 
-
-
-    // pode ser feito passando o objeto como a linha abaixo, mas iremos usar o construtor da classe
-    //this.todos.push(new Todo(){id : 2, todo : 'Levar cachorro para passear', done : false});
-    this.todos.push(new Todo(1, 'Passear com o cachorro', false));
-    this.todos.push(new Todo(2, 'Ir ao supermercado', true));
-    this.todos.push(new Todo(3, 'Cortar o cabelo', false));
-
   }
 
   // para remover um item é necessario fazer um splice
@@ -49,5 +41,17 @@ export class AppComponent {
 
   markAsUndone(todo: Todo) {
     todo.done = false;
+  }
+  add(){
+    
+    //pode ser feito para ter uma json
+    const title = this.form.controls['title'].value;
+    const id = this.todos.length + 1;
+    this.todos.push(new Todo(id, title, false));
+    this.clear();
+
+  }
+  clear() {
+    this.form.reset();
   }
 }
