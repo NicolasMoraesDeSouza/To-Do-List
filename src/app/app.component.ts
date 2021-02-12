@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Todo } from './models/todo.model';
-
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -32,15 +31,18 @@ export class AppComponent {
     if (index !== -1) {
       // verifica se o todo esta na lista, se for !== -1 está na lista, ai pode remover
       this.todos.splice(index, 1);//pega o item que vai ser removido e diz quantos item precisa remover
+      this.saveData();
     }
   }
 
   markAsDone(todo: Todo) {
     todo.done = true;
+    this.saveData();
   }
 
   markAsUndone(todo: Todo) {
     todo.done = false;
+    this.saveData();
   }
   add(){
     
@@ -48,10 +50,16 @@ export class AppComponent {
     const title = this.form.controls['title'].value;
     const id = this.todos.length + 1;
     this.todos.push(new Todo(id, title, false));
+    this.saveData();
     this.clear();
 
   }
   clear() {
     this.form.reset();
   }
+  saveData() {
+    const data = JSON.stringify(this.todos);
+    localStorage.setItem('todos', data);
+  }
+  
 }
