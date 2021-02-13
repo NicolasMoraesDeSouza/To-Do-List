@@ -3,18 +3,19 @@
     <head>
 
         <meta charset="UTF-8">
+
     
     </head>
-    <body>
+    <body >
 
-<p style="text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 25px;">{{ title }}</p>
+<p>{{ title }}</p>
 
         <ul>
             <p *ngIf="todos.length==0"><small>Você ainda não tem tarefas hoje</small></p>
-            <li *ngFor="let todo of todos">{{ todo.id }} - {{ todo.title }} - {{ todo.done }} |
-                <button style="background-color: orange;" *ngIf="todo.done" (click)="markAsUndone(todo)" >Refazer</button> |
-                <button style= "background-color: #70ff86;" *ngIf="!todo.done" (click)="markAsDone(todo)">Concluir</button> |
-                <button style="background-color: red;" (click)="remove(todo)">Remover</button> </li>
+            <li  *ngFor="let todo of todos">{{ todo.id }} - {{ todo.title }} 
+                <button  *ngIf="todo.done" (click)="markAsUndone(todo)" >Refazer</button> |
+                <button  *ngIf="!todo.done" (click)="markAsDone(todo)">Concluir</button> |
+                <button  (click)="remove(todo)">Remover</button> </li>
         </ul>
         
         <form [formGroup]="form">

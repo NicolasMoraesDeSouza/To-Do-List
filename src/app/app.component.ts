@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './app.component.html',
   template: '<p> aqui pode ser colocado html, mas o ideal é fazer com templateUrl como acima</p>',
   styleUrls: ['./app.component.css'] // aqui pode ser ser incluido varios css que esse componente tem
+  
 })
 export class AppComponent {
   public todos: Todo[] = [];
@@ -18,9 +19,13 @@ export class AppComponent {
         title : ['', Validators.compose([
           Validators.minLength(3),
           Validators.maxLength(60),
-          Validators.required
+          Validators.required,
+          
+        
         ])]
       });
+    this.loadData();
+    
 
   }
 
@@ -61,5 +66,9 @@ export class AppComponent {
     const data = JSON.stringify(this.todos);
     localStorage.setItem('todos', data);
   }
-  
+  loadData() {
+    const data = localStorage.getItem('todos');
+    this.todos = JSON.parse(data);
+  }
+
 }
